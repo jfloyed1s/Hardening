@@ -5,9 +5,13 @@ ID,Category,Name,Method,MethodArgument,RegistryPath,RegistryItem,ClassName,Names
 1102,"Account Policies","Reset account lockout counter",accountpolicy,,,,,,,30,15,>=,Low
 1103,"Account Policies","Store passwords using reversible encryption",secedit,"System Access\ClearTextPassword",,,,,,0,0,=,High
 1301,"Security Options","Audit: Force audit policy subcategory settings to override audit policy category settings",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,SCENoApplyLegacyAuditPolicy,,,,"",1,=,Low
+1305,"Security Options","Microsoft network client: Digitally sign communications (always)",Registry,,HKLM:\System\CurrentControlSet\Services\LanmanWorkstation\Parameters,RequireSecuritySignature,,,,0,1,=,Medium
+1307,"Security Options","Microsoft network server: Digitally sign communications (always)",Registry,,HKLM:\System\CurrentControlSet\Services\LanManServer\Parameters,RequireSecuritySignature,,,,0,1,=,Medium
 1309,"Security Options","Network access: Do not allow anonymous enumeration of SAM accounts",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,RestrictAnonymousSAM,,,,1,1,=,Medium
 1310,"Security Options","Network access: Do not allow anonymous enumeration of SAM accounts and shares",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,RestrictAnonymous,,,,0,1,=,Medium
 1311,"Security Options","Network access: Do not allow storage of passwords and credentials for network authentication",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,DisableDomainCreds,,,,0,1,=,Medium
+1315,"Security Options","Network security: Minimum session security for NTLM SSP based (including secure RPC) clients",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa\MSV1_0,NTLMMinClientSec,,,,536870912,537395200,=,Medium
+1316,"Security Options","Network security: Minimum session security for NTLM SSP based (including secure RPC) servers",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa\MSV1_0,NTLMMinServerSec,,,,536870912,537395200,=,Medium
 1317,"Security Options","Network security: Restrict NTLM: Audit Incoming NTLM Traffic",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa\MSV1_0,AuditReceivingNTLMTraffic,,,,0,2,=,Medium
 1318,"Security Options","Network security: Restrict NTLM: Audit NTLM authentication in this domain",Registry,,HKLM:\System\CurrentControlSet\Services\Netlogon\Parameters,AuditNTLMInDomain,,,,0,7,=,Medium
 1321,"Security Options","User Account Control: Admin Approval Mode for the Built-in Administrator account",Registry,,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System,FilterAdministratorToken,,,,0,1,=,Medium
@@ -54,6 +58,7 @@ ID,Category,Name,Method,MethodArgument,RegistryPath,RegistryItem,ClassName,Names
 1524,"Advanced Audit Policy Configuration","Security System Extension",auditpol,{0CCE9211-69AE-11D9-BED3-505054503030},,,,,,"No Auditing",Success,contains,Low
 1525,"Advanced Audit Policy Configuration","System Integrity",auditpol,{0CCE9212-69AE-11D9-BED3-505054503030},,,,,,"Success and Failure",Success and Failure,=,Low
 1600,"Administrative Templates: Control Panel","Personalization: Prevent enabling lock screen camera",Registry,,HKLM:\Software\Policies\Microsoft\Windows\Personalization,NoLockScreenCamera,,,,0,1,=,Low
+1602,"Administrative Templates: Network","Lanman Workstation: Enable insecure guest logons",Registry,,HKLM:\Software\Policies\Microsoft\Windows\LanmanWorkstation,AllowInsecureGuestAuth,,,,1,0,=,Medium
 1604,"Administrative Templates: Network","WLAN Settings: Allow Windows to automatically connect to suggested open hotspots, to networks shared by contacts, and to hotspots offering paid services",Registry,,HKLM:\Software\Microsoft\wcmsvc\wifinetworkmanager\config,AutoConnectAllowedOEM,,,0,1,0,=,Medium
 1606,"Administrative Templates: System","Credentials Delegation: Encryption Oracle Remediation",Registry,,HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters,AllowEncryptionOracle,,,,0,0,=,Medium
 1614,"Administrative Templates: System","Device Guard: Virtualization Based Security Status",CimInstance,,,,Win32_DeviceGuard,root\Microsoft\Windows\DeviceGuard,VirtualizationBasedSecurityStatus,"Not available",2,=,Medium
@@ -155,11 +160,3 @@ ID,Category,Name,Method,MethodArgument,RegistryPath,RegistryItem,ClassName,Names
 2201,"MS Security Guide","Lsass.exe audit mode",Registry,,"HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LSASS.exe",AuditLevel,,,,,8,=,Low
 2202,"MS Security Guide","NetBT NodeType configuration",Registry,,HKLM:\SYSTEM\CurrentControlSet\Services\NetBT\Parameters,NodeType,,,,0,2,=,Medium
 2203,"MS Security Guide","WDigest Authentication",Registry,,HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest,UseLogonCredential,,,,0,0,=,High
-2309,"Windows Firewall",HardeningKitty-Block-certutil-x64,FirewallRule,Any|Outbound|Block|||%SystemRoot%\System32\certutil.exe|,,,,,,False,True,=,Low
-2310,"Windows Firewall",HardeningKitty-Block-certutil-x86,FirewallRule,Any|Outbound|Block|||%SystemRoot%\Syswow64\certutil.exe|,,,,,,False,True,=,Low
-2313,"Windows Firewall",HardeningKitty-Block-cscript-x64,FirewallRule,Any|Outbound|Block|||%SystemRoot%\System32\cscript.exe|,,,,,,False,True,=,Low
-2314,"Windows Firewall",HardeningKitty-Block-cscript-x86,FirewallRule,Any|Outbound|Block|||%SystemRoot%\Syswow64\cscript.exe|,,,,,,False,True,=,Low
-2319,"Windows Firewall",HardeningKitty-Block-RunScriptHelper-x64,FirewallRule,Any|Outbound|Block|||%SystemRoot%\System32\RunScriptHelper.exe|,,,,,,False,True,=,Low
-2320,"Windows Firewall",HardeningKitty-Block-RunScriptHelper-x86,FirewallRule,Any|Outbound|Block|||%SystemRoot%\Syswow64\RunScriptHelper.exe|,,,,,,False,True,=,Low
-2321,"Windows Firewall",HardeningKitty-Block-wscript-x64,FirewallRule,Any|Outbound|Block|||%SystemRoot%\System32\wscript.exe|,,,,,,False,True,=,Low
-2322,"Windows Firewall",HardeningKitty-Block-wscript-x86,FirewallRule,Any|Outbound|Block|||%SystemRoot%\Syswow64\wscript.exe|,,,,,,False,True,=,Low
