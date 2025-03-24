@@ -5,8 +5,6 @@ ID,Category,Name,Method,MethodArgument,RegistryPath,RegistryItem,ClassName,Names
 1102,"Account Policies","Reset account lockout counter",accountpolicy,,,,,,,30,15,>=,Low
 1103,"Account Policies","Store passwords using reversible encryption",secedit,"System Access\ClearTextPassword",,,,,,0,0,=,High
 1301,"Security Options","Audit: Force audit policy subcategory settings to override audit policy category settings",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,SCENoApplyLegacyAuditPolicy,,,,"",1,=,Low
-1305,"Security Options","Microsoft network client: Digitally sign communications (always)",Registry,,HKLM:\System\CurrentControlSet\Services\LanmanWorkstation\Parameters,RequireSecuritySignature,,,,0,1,=,Medium
-1307,"Security Options","Microsoft network server: Digitally sign communications (always)",Registry,,HKLM:\System\CurrentControlSet\Services\LanManServer\Parameters,RequireSecuritySignature,,,,0,1,=,Medium
 1309,"Security Options","Network access: Do not allow anonymous enumeration of SAM accounts",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,RestrictAnonymousSAM,,,,1,1,=,Medium
 1310,"Security Options","Network access: Do not allow anonymous enumeration of SAM accounts and shares",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,RestrictAnonymous,,,,0,1,=,Medium
 1311,"Security Options","Network access: Do not allow storage of passwords and credentials for network authentication",Registry,,HKLM:\System\CurrentControlSet\Control\Lsa,DisableDomainCreds,,,,0,1,=,Medium
